@@ -71,7 +71,7 @@ def open_file():
     in_filename = "solar_system.txt"
     space_objects = read_space_objects_data_from_file(in_filename)
     max_distance = max([max(abs(obj.obj.x), abs(obj.obj.y)) for obj in space_objects])
-    calculate_scale_factor(max_distance)
+    calculate_scale_factor(10**15)
 
 def handle_events(events, menu):
     global alive
@@ -101,7 +101,7 @@ def init_ui(screen):
     box = thorpy.Box(elements=[
         slider,
         button_pause, 
-        button_stop, 
+        button_stop,
         button_play, 
         button_load,
         timer])
@@ -123,7 +123,7 @@ def init_ui(screen):
 
 def main():
     """Главная функция главного модуля.
-    Создаёт объекты графического дизайна библиотеки tkinter: окно, холст, фрейм с кнопками, кнопки.
+    Создаёт объекты графического дизайна библиотеки pygame: окно, холст, фрейм с кнопками, кнопки.
     """
     
     global physical_time
