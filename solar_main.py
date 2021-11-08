@@ -1,6 +1,6 @@
 # coding: utf-8
 # license: GPLv3
-
+#asdsad
 import pygame as pg
 from solar_vis import *
 from solar_model import *
@@ -71,7 +71,7 @@ def open_file():
     in_filename = "solar_system.txt"
     space_objects = read_space_objects_data_from_file(in_filename)
     max_distance = max([max(abs(obj.obj.x), abs(obj.obj.y)) for obj in space_objects])
-    calculate_scale_factor(10**15)
+    calculate_scale_factor(max_distance)
 
 def handle_events(events, menu):
     global alive
