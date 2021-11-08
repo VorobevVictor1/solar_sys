@@ -12,7 +12,9 @@ def read_space_objects_data_from_file(input_filename):
 
     **input_filename** — имя входного файла
     """
-
+    inp_space_object = open(input_filename)
+    sol_obj = inp.read()
+    inp.close()
     objects = []
     with open(input_filename, 'r') as input_file:
         for line in input_file:
