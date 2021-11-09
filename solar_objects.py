@@ -2,86 +2,38 @@
 # license: GPLv3
 
 class Space_object:
-    def __init__(self, object_line):
-        self.type = 1
-        self.mass = 1
-        self.x = 1
-        self.y = 1
-        self.v_x = 1
-        self.v_y = 1
-        self.f_x = 1
-        self.f_y = 1
-        self.drawing_radius = 1
-        self.drawing_color = 1
-class Star:
+    """Тип данных, общий для всех космических объектов.
+        Содержит массу, координаты, скорость объекта по осям х и у,
+        силу, действующую на объект по осям х и у,
+        а также визуальный радиус звезды в пикселах и её цвет.
+    """
+    def __init__(self, parameters):
+        self.type = parameters[0]
+        self.drawing_radius = parameters[1]
+        self.drawing_color = parameters[2]
+        self.mass = parameters[3]
+        self.x = parameters[4]
+        self.y = parameters[5]
+        self.v_x = parameters[6]
+        self.v_y = parameters[7]
+        self.f_x = 0
+        self.f_y = 0
+
+class Star(Space_object):
     """Тип данных, описывающий звезду.
     Содержит массу, координаты, скорость звезды,
     а также визуальный радиус звезды в пикселах и её цвет.
     """
-
-    type = "star"
-    """Признак объекта звезды"""
-
-    m = 1
-    """Масса звезды"""
-
-    x = 0
-    """Координата по оси **x**"""
-
-    y = 0
-    """Координата по оси **y**"""
-
-    Vx = 0
-    """Скорость по оси **x**"""
-
-    Vy = 0
-    """Скорость по оси **y**"""
-
-    Fx = 0
-    """Сила по оси **x**"""
-
-    Fy = 0
-    """Сила по оси **y**"""
-
-    R = 5
-    """Радиус звезды"""
-
-    color = "red"
-    """Цвет звезды"""
+    def __init__(self, parameters):
+        super().__init__(parameters)
 
 
-class Planet:
+
+class Planet(Space_object):
     """Тип данных, описывающий планету.
     Содержит массу, координаты, скорость планеты,
     а также визуальный радиус планеты в пикселах и её цвет
     """
 
-    type = "planet"
-    """Признак объекта планеты"""
-
-    m = 1
-    """Масса планеты"""
-
-    x = 0
-    """Координата по оси **x**"""
-
-    y = 0
-    """Координата по оси **y**"""
-
-    Vx = 0
-    """Скорость по оси **x**"""
-
-    Vy = 0
-    """Скорость по оси **y**"""
-
-    Fx = 0
-    """Сила по оси **x**"""
-
-    Fy = 0
-    """Сила по оси **y**"""
-
-    R = 5
-    """Радиус планеты"""
-
-    color = "green"
-    """Цвет планеты"""
+    def __init__(self, parameters):
+        super().__init__(parameters)
