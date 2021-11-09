@@ -1,7 +1,8 @@
 # coding: utf-8
 # license: GPLv3
 
-"""class Space_object:
+from solar_input import parse_star_parameters, parse_planet_parameters
+class Space_object:
     """Тип данных, общий для всех космических объектов.
         Содержит массу, координаты, скорость объекта по осям х и у,
         силу, действующую на объект по осям х и у,
@@ -18,7 +19,7 @@
         self.v_y = float(parameters[7])
 
         self.f_x = 0
-        self.f_y = 0"""
+        self.f_y = 0
         self.f_x = 00
         self.f_y = 0
 
