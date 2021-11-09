@@ -45,7 +45,7 @@ def read_space_objects_data_from_file(input_filename):
     return [DrawableObject(obj) for obj in objects]
 
 
-def parse_star_parameters(line, star):
+def parse_star_parameters(line, stars[line]):
     """Считывает данные о звезде из строки.
 
     Входная строка должна иметь слеюущий формат:
@@ -64,10 +64,11 @@ def parse_star_parameters(line, star):
 
     **star** — объект звезды.
     """
+    return stars[line]
     pass  # FIXME: допишите парсер
 
 
-def parse_planet_parameters(line, planet):
+def parse_planet_parameters(line, planets[line]):
     """Считывает данные о планете из строки.
     Входная строка должна иметь слеюущий формат:
 
@@ -85,6 +86,14 @@ def parse_planet_parameters(line, planet):
 
     **planet** — объект планеты.
     """
+    """planet.r = int(stars[line][1])
+    planet.color = stars[line][2]
+    planet.mass = int(stars[line][3])
+    planet.x = int(stars[line][4])
+    planet.y = int(stars[line][5])
+    planet.Vx = int(stars[line][6])
+    planet.Vy = int(stars[line][7])"""
+    return planets[line]
     pass  # FIXME: допишите парсер
 
 
