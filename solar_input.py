@@ -13,9 +13,12 @@ def read_space_objects_data_from_file(input_filename):
 
     **input_filename** — имя входного файла
     """
-    inp_space_object = open(input_filename)
-    sol_obj = inp.read()
-    inp.close()
+    '''inp_space_object = open(input_filename)
+    sol_obj = inp_space_object.read()
+    inp_space_object.close()
+    objects = sol_obj.split("#")
+    print(objects)'''
+
     objects = []
     with open(input_filename, 'r') as input_file:
         for line in input_file:
@@ -23,16 +26,20 @@ def read_space_objects_data_from_file(input_filename):
                 continue  # пустые строки и строки-комментарии пропускаем
 
             object_type = line.split()[0].lower()
+            object_string = line
             if object_type == "star":
                 star = Star()
+                parameters = line.split()
                 parse_star_parameters(line, star)
-                objects.append(star)
+                objects.append(star_parameters)
             elif object_type == "planet":
                 planet = Planet()
+                parameters = line.split()
                 parse_planet_parameters(line, planet)
-                objects.append(planet)
+                objects.append(planet_parameters)
             else:
                 print("Unknown space object")
+    print(objects)
 
     return [DrawableObject(obj) for obj in objects]
 
