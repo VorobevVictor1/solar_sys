@@ -19,7 +19,8 @@ def read_space_objects_data_from_file(input_filename):
     objects = sol_obj.split("#")
     print(objects)'''
 
-    objects = []
+    planets = []
+    stars = []
     with open(input_filename, 'r') as input_file:
         for line in input_file:
             if len(line.strip()) == 0 or line[0] == '#':
@@ -29,17 +30,17 @@ def read_space_objects_data_from_file(input_filename):
             object_string = line
             if object_type == "star":
                 star = Star()
-                parameters = line.split()
+                stars_parameters = line.split()
                 parse_star_parameters(line, star)
-                objects.append(star_parameters)
+                stars.append(stars_parameters)
             elif object_type == "planet":
                 planet = Planet()
-                parameters = line.split()
+                planets_parameters = line.split()
                 parse_planet_parameters(line, planet)
-                objects.append(planet_parameters)
+                planets.append(planets_parameters)
             else:
                 print("Unknown space object")
-    print(objects)
+    print(stars, planets)
 
     return [DrawableObject(obj) for obj in objects]
 
