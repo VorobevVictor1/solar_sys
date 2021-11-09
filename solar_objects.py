@@ -1,7 +1,18 @@
 # coding: utf-8
 # license: GPLv3
 
-
+class Space_object:
+    def __init__(self, object_line):
+        self.type = 1
+        self.mass = 1
+        self.x = 1
+        self.y = 1
+        self.v_x = 1
+        self.v_y = 1
+        self.f_x = 1
+        self.f_y = 1
+        self.drawing_radius = 1
+        self.drawing_color = 1
 class Star:
     """Тип данных, описывающий звезду.
     Содержит массу, координаты, скорость звезды,
