@@ -2,6 +2,8 @@
 # license: GPLv3
 
 import pygame as pg
+from pygame.draw import circle
+from solar_objects import *
 
 """Модуль визуализации.
 Нигде, кроме этого модуля, не используются экранные координаты объектов.
@@ -57,12 +59,7 @@ def scale_y(y):
 
     **y** — y-координата модели.
     """
-    return int(y * scale_factor) + window_width // 2
-
-
-if __name__ == "__main__":
-    print("This module is not for direct call!")
-
+    return int(y * scale_factor) + window_height // 2
 
 class Drawer:
     def __init__(self, screen):
@@ -83,4 +80,7 @@ class DrawableObject:
         self.obj = obj
 
     def draw(self, surface):
-        pass  # FIXME
+        circle(surface, self.obj.drawing_color, (scale_x(self.obj.x), scale_y(self.obj.y)), self.obj.drawing_radius)
+
+if __name__ == "__main__":
+    print("This module is not for direct call!")

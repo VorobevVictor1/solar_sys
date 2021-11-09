@@ -16,8 +16,11 @@
         self.y = float(parameters[5])
         self.v_x = float(parameters[6])
         self.v_y = float(parameters[7])
+
         self.f_x = 0
         self.f_y = 0"""
+        self.f_x = 00
+        self.f_y = 0
 
 class Star():
     """Тип данных, описывающий звезду.
