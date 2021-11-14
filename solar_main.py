@@ -21,7 +21,7 @@ model_time = 0
 """Физическое время от начала расчёта.
 Тип: float"""
 
-time_scale = 1000.0
+time_scale = 1000000.0
 """Шаг по времени при моделировании.
 Тип: float"""
 
@@ -77,6 +77,15 @@ def open_file():
     max_distance = max([max(abs(obj.obj.x), abs(obj.obj.y)) for obj in space_objects])
     calculate_scale_factor(max_distance)
 
+def save_file():
+
+    global space_objects
+
+    output_filename = 'solar_system_save.txt'
+    write_space_objects_data_to_file(output_filename, space_objects)
+
+
+
 
 def handle_events(events, menu):
     global alive
@@ -105,6 +114,7 @@ def init_ui(screen):
     timer = thorpy.OneLineText("Seconds passed")
 
     button_load = thorpy.make_button(text="Load a file", func=open_file)
+    button_save = thorpy.make_button(text="Save a file", func=save_file)
 
     box = thorpy.Box(elements=[
         slider,
@@ -112,6 +122,7 @@ def init_ui(screen):
         button_stop,
         button_play,
         button_load,
+        button_save, 
         timer])
     reaction1 = thorpy.Reaction(reacts_to=thorpy.constants.THORPY_EVENT,
                                 reac_func=slider_reaction,
