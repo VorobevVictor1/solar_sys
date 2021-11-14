@@ -57,10 +57,11 @@ def write_space_objects_data_to_file(output_filename, space_objects):
     """
     with open(output_filename, 'w') as out_file:
         for obj in space_objects:
-            out_file.write(str(obj.type))
-            print(out_file, "%s %d %s %f" % ('1', 2, '3', 4.5))
-            # FIXME!
 
+            object_line = ' '.join([str(obj.obj.type), str(obj.obj.drawing_radius), str(obj.obj.drawing_color),
+                                    str(obj.obj.mass), str(obj.obj.x), str(obj.obj.y),
+                                    str(obj.obj.v_x), str(obj.obj.v_y), '\n'])
+            out_file.write(object_line)
 
 if __name__ == "__main__":
     print("This module is not for direct call!")

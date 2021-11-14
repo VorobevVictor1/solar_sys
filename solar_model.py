@@ -24,7 +24,6 @@ def calculate_force(body, space_objects):
         F = gravitational_constant * body.mass * obj.mass / (r)**2
         body.f_x += F * math.cos(corner)
         body.f_y += F * math.sin(corner)
-        r = max(r, body.drawing_radius + obj.drawing_radius)
         # FIXME: обработка аномалий при прохождении одного тела сквозь другое
 
 
