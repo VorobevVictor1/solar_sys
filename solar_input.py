@@ -57,7 +57,7 @@ def write_space_objects_data_to_file(output_filename, space_objects):
     """
     with open(output_filename, 'w') as out_file:
         for obj in space_objects:
-            out_file.write(str(obj.type))
+            out_file.write(str(obj.obj.type))
             print(out_file, "%s %d %s %f" % ('1', 2, '3', 4.5))
             # FIXME!
 
