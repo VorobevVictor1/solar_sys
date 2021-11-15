@@ -1,17 +1,17 @@
 # Солнечная система
-Star 10 red 1.98892e30 0 0 0 0
+Star 4 red 1.98892e30 0 0 0 0
 
 # Меркурий
-Planet 2 orange 3.302e23 57.909e9 0 0 47.87e3
+Planet 1 orange 3.302e23 57.909e9 0 0 47.87e3
 
 # Венера
-Planet 5 blue 4.869e24 108.21e9 0 0 35.02e3
+Planet 2 blue 4.869e24 108.21e9 0 0 35.02e3
 
 # Земля
-Planet 5 green 5.974e24 149.60e9 0 0 29.76e3
+Planet 2 green 5.974e24 149.60e9 0 0 29.76e3
 
 #Марс
-Planet 3 red 6.419e23 227.94e9 0 0 24.13e3
+Planet 1 red 6.419e23 227.94e9 0 0 24.13e3
 
 # Юпитер
 Planet 20 yellow 1.899e27 778.41e9 0 0 13.07e3
