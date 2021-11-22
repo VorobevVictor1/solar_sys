@@ -24,35 +24,28 @@ def calculate_force(body, space_objects):
         F = gravitational_constant * body.mass * obj.mass / (r)**2
         body.f_x += F * math.cos(corner)
         body.f_y += F * math.sin(corner)
-        # FIXME: обработка аномалий при прохождении одного тела сквозь другое
-
-
 
 def move_space_object(body, dt):
     """Перемещает тело в соответствии с действующей на него силой.
 
     Параметры:
 
-    **body** — тело, которое нужно переместить.
+    body — тело, которое нужно переместить.
+    dt - шаг по времени
     """
-    ax = body.f_x / body.mass
-    body.v_x += ax * dt
+    body.v_x += body.f_x / body.mass * dt
     body.x += body.v_x * dt
-    ay = body.f_y / body.mass
-    body.v_y += ay * dt
+    body.v_y += body.f_y / body.mass * dt
     body.y += body.v_y * dt
-
-
-
 
 def recalculate_space_objects_positions(space_objects, dt):
     """Пересчитывает координаты объектов.
 
     Параметры:
 
-    **space_objects** — список оьъектов, для которых нужно пересчитать координаты.
+    space_objects — список оьъектов, для которых нужно пересчитать координаты.
 
-    **dt** — шаг по времени
+    dt — шаг по времени
     """
     for body in space_objects:
         calculate_force(body, space_objects)

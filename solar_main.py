@@ -28,12 +28,12 @@ time_scale = 1000.0
 space_objects = []
 """Список космических объектов."""
 
-
 def execution(delta):
     """Функция исполнения -- выполняется циклически, вызывая обработку всех небесных тел,
     а также обновляя их положение на экране.
     Цикличность выполнения зависит от значения глобальной переменной perform_execution.
     При perform_execution == True функция запрашивает вызов самой себя по таймеру через от 1 мс до 100 мс.
+    delta - шаг по времени
     """
     global model_time
     global displayed_time
@@ -50,12 +50,15 @@ def start_execution():
 
 
 def pause_execution():
+    """Обработчик события нажатия на кнопку Pause.
+        Приостанавливает циклическое исполнение функции execution.
+        """
     global perform_execution
     perform_execution = False
 
 
 def stop_execution():
-    """Обработчик события нажатия на кнопку Start.
+    """Обработчик события нажатия на кнопку Quit.
     Останавливает циклическое исполнение функции execution.
     """
     global alive
@@ -63,8 +66,9 @@ def stop_execution():
 
 
 def open_file():
-    """Открывает диалоговое окно выбора имени файла и вызывает
+    """Вызывает
     функцию считывания параметров системы небесных тел из данного файла.
+    И высчитывает с scale_factor - коэффициент отрисовки.
     Считанные объекты сохраняются в глобальный список space_objects
     """
     global space_objects
@@ -78,7 +82,11 @@ def open_file():
     calculate_scale_factor(max_distance)
 
 def save_file():
-
+    """
+    Вызывает
+    функцию записывания параметров системы небесных тел в данный файла.
+    Считанные объекты сохраняются в глобальный список space_objects
+    """
     global space_objects
 
     output_filename = 'solar_system_save.txt'
@@ -86,6 +94,11 @@ def save_file():
 
 
 def handle_events(events, menu):
+    '''
+    Функция обработчик событий.
+    :param events: события pygame
+    :param menu: объект ThorPY
+    '''
     global alive
     for event in events:
         menu.react(event)
@@ -94,15 +107,28 @@ def handle_events(events, menu):
 
 
 def slider_to_real(val):
+    '''
+    Высчитывает ускорение времени
+    '''
     return np.exp(5 + val)
 
 
 def slider_reaction(event):
+    '''
+    Обрабатывает движение ползунка изменения времени
+    '''
     global time_scale
     time_scale = slider_to_real(event.el.get_value())
 
 
 def init_ui(screen):
+    '''
+    Функция, задающая пользовательский интерфейс.
+    :param screen: поверхность Pygame
+    Возвращает объекты ThorPY
+    menu: графическое отображдение пользовательского нтерфейса.
+    box:
+    '''
     global browser
     slider = thorpy.SliderX(100, (-10, 10), "Simulation speed")
     slider.user_func = slider_reaction
@@ -158,8 +184,8 @@ def main():
 
     pg.init()
 
-    width = 1000
-    height = 850
+    width = window_width
+    height = window_height
     screen = pg.display.set_mode((width, height))
     last_time = time.perf_counter()
     drawer = Drawer(screen)

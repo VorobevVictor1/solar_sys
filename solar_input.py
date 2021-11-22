@@ -44,8 +44,6 @@ def parse_space_object_parameters(line):
     else:
         return Planet(parameters)
 
-
-
 def write_space_objects_data_to_file(output_filename, space_objects):
     """Сохраняет данные о космических объектах в файл.
     Строки должны иметь следующий формат:

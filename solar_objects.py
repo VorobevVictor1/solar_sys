@@ -29,7 +29,6 @@ class Star(Space_object):
     def __init__(self, parameters):
         super().__init__(parameters)
 
-
 class Planet(Space_object):
     """Тип данных, описывающий планету.
     Содержит массу, координаты, скорость планеты,
