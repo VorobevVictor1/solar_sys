@@ -1,11 +1,9 @@
 # coding: utf-8
 # license: GPLv3
 # asdsad
-import pygame as pg
-from solar_vis import *
-from solar_model import *
-from solar_input import *
-from solar_objects import *
+from models.solar_vis import *
+from models.solar_model import *
+from models.solar_input import *
 import thorpy
 import time
 import numpy as np
@@ -77,7 +75,7 @@ def open_file():
     global model_time
 
     model_time = 0.0
-    in_filename = "solar_system.txt"
+    in_filename = "txts/solar_system.txt"
     space_objects = read_space_objects_data_from_file(in_filename)
     max_distance = max([max(abs(obj.obj.x), abs(obj.obj.y)) for obj in space_objects])
     calculate_scale_factor(max_distance)
@@ -90,7 +88,7 @@ def save_file():
     """
     global space_objects
 
-    output_filename = 'solar_system_save.txt'
+    output_filename = 'txts/solar_system_save.txt'
     write_space_objects_data_to_file(output_filename, space_objects)
 
 

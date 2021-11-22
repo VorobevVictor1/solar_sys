@@ -3,7 +3,6 @@
 
 import pygame as pg
 from pygame.draw import circle
-from solar_objects import *
 
 """Модуль визуализации.
 Нигде, кроме этого модуля, не используются экранные координаты объектов.
